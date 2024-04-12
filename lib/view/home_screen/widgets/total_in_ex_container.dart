@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 class TotalExInContainer extends StatelessWidget {
   const TotalExInContainer({
     super.key,
+    required this.amount,
+    required this.title,
+    required this.textColor,
   });
-
+  final num amount;
+  final String title;
+  final Color textColor;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -26,16 +31,16 @@ class TotalExInContainer extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    "Balance",
+                    "$title",
                     style: TextStyle(
                         // color: Colors.white,
                         fontSize: 14,
                         fontWeight: FontWeight.w500),
                   ),
                   Text(
-                    "₹876543",
+                    "₹$amount",
                     style: TextStyle(
-                        // color: Colors.white,
+                        color: textColor,
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
                   ),

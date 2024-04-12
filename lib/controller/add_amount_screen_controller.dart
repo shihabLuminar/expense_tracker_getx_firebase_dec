@@ -12,16 +12,22 @@ class AddAmountScreenController extends GetxController {
     update();
   }
 
-  Future addNewRecors() async {
+  Future<void> addNewRecord({
+    required String amount,
+    required String category,
+    required String date,
+    String? note = "",
+  }) async {
     isLoading.value = true;
 
     await collection.add({
-      "amount": 3567,
-      "category": "fuel",
-      "date": "02-02-2024",
-      "note": "",
+      "amount": num.parse(amount.toString()),
+      "category": category,
+      "date": date,
+      "note": note,
       "type": isIncome ? "income" : "expense",
     });
+
     isLoading.value = false;
   }
 }
